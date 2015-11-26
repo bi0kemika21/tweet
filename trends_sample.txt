@@ -1,0 +1,21 @@
+[
+{
+	"created_at": "2014-03-23T13:16:38Z", 
+	"trends": 
+		[
+		{"url": "http://twitter.com/search?q=%23sunchat", "query": "%23sunchat", "name": "#sunchat", "promoted_content": null},
+		 {"url": "http://twitter.com/search?q=%23KCA", "query": "%23KCA", "name": "#KCA", "promoted_content": null},
+		  {"url": "http://twitter.com/search?q=Chicago", "query": "Chicago", "name": "Chicago", "promoted_content": null},
+		   {"url": "http://twitter.com/search?q=Florida", "query": "Florida", "name": "Florida", "promoted_content": null}, 
+		   {"url": "http://twitter.com/search?q=%23oomf", "query": "%23oomf", "name": "#oomf", "promoted_content": null}, {"url": "http://twitter.com/search?q=%22New+York%22", "query": "%22New+York%22", "name": "New York", "promoted_content": null}, {"url": "http://twitter.com/search?q=%23SLSPisoutnow", "query": "%23SLSPisoutnow", "name": "#SLSPisoutnow", "promoted_content": null}, {"url": "http://twitter.com/search?q=America", "query": "America", "name": "America", "promoted_content": null}, {"url": "http://twitter.com/search?q=%23tcot", "query": "%23tcot", "name": "#tcot", "promoted_content": null}, {"url": "http://twitter.com/search?q=Starbucks", "query": "Starbucks", "name": "Starbucks", "promoted_content": null}
+		   ]
+		,
+	"as_of": "2014-03-23T13:19:33Z", 
+	"locations": 
+		[{"woeid": 23424977, 
+		 "name": "United States"
+		 }]
+}
+]
+
+

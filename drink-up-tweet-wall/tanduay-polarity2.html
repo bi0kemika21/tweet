@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="86">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+<title>Tanduay Polarity Rhum Rock &amp; Rave</title>
+<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,700' rel='stylesheet' type='text/css'>
+<style>
+
+html, body{
+	height: 100%;
+}
+
+body {
+	background: url(bg.jpg) no-repeat 50% 10% #CEB9A5;
+    background-size: cover;
+    font-family: 'Titillium Web', sans-serif;
+    line-height: 1;
+    margin: 0;
+    overflow: hidden;
+}
+
+
+a {color: #fff;}
+
+#menu {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.element {
+    padding:20px;
+    border-radius: 5px;
+
+}
+
+
+.photo img{
+	width:100px;
+	height:100px;
+	float:left;
+	border-radius: 10px;
+}
+
+.detailsphoto1 {
+	max-width: 250px;
+	position:absolute;
+	bottom:60%;
+	right:60px;
+}
+
+.detailsphoto2 {
+	border-radius: 10px;
+	margin-left:70px;
+}
+
+.detailsphoto2 img {
+	max-width: 250px;
+	border-radius: 10px;
+	border: 10px solid #F7F7F7;
+}
+
+.detailsphoto3 {
+	border-radius: 20px;
+}
+
+.detailsphoto {
+	padding:20px;
+	border-radius: 20px;
+	max-width: 300px;
+	float:right;
+}
+
+.pic {
+	margin-left:-70px;
+	padding:20px;
+	background-color: #F7F7F7;
+	width:100px;
+	height:100px;
+	float:left;
+	padding-right:0px;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+
+}
+
+.symbol2 {
+	color: #8899a6;
+	font-weight: 400;
+}
+
+.element .symbol {
+	width: 450px;
+	font-size: 20px;
+	text-align: left;
+	float:left;
+	color:#39B54A;
+	font-weight: 700;
+	font-size:20pt;
+	padding:20px;
+	padding-top:10px;
+	padding-bottom:20px;
+	border-top-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	padding-top:20px;
+}
+
+.details {
+	font-size: 24px;
+	color: #292f33;
+	font-weight: 400;
+	padding-top:10px;
+}
+
+button {
+    color: rgba(255,144,0,0.75);
+    background: transparent;
+    outline: 1px solid rgba(255,144,0,0.75);
+    border: 0px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: rgba(255,144,0,0.5);
+}
+button:active {
+    color: #000000;
+    background-color: rgba(255,144,0,0.75);
+}
+			
+#ann{
+	position:absolute;
+	bottom:20px;
+	right:20px;
+}
+#twitter {
+	position: absolute;
+	bottom:20px;
+	left:20px;
+}
+
+#logos {
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+
+#logos img {
+	height:170px;
+}
+
+/*-- Jump & Tanduay --*/
+::-moz-selection {
+    background: rgba(0, 0, 0, .3);
+	color: #fff;
+	text-shadow: none;
+}
+
+::selection {
+    background: rgba(0, 0, 0, .3);
+	color: #fff;
+    text-shadow: none;
+}
+
+.jump-logo,
+.tanduay-logo{
+	position: absolute;
+}
+
+.jump-logo{
+	bottom: 28px;
+	right: 28px;
+	background: url(powered-by-jump.png) no-repeat;
+	background-size: 80px;
+	width: 80px;
+	height: 52px;
+}
+
+.tanduay-logo{
+	top: 49px;
+	/*left: 42px;*/
+	left: 50%;
+	background: url(tanduay.png) no-repeat;
+	background-size: 231px;
+	width: 231px;
+	height: 105px;
+	margin-left: -116px;
+}
+
+/*-- Twitter --*/
+.twitter{
+	position: absolute;
+	bottom: 28px;
+	left: 28px;
+}
+
+.twitter-icon{
+	position: relative;
+}
+
+.twitter-icon img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 42px;
+
+	backface-visibilty:hidden;
+	-webkit-backface-visibilty:hidden;
+
+	animation: pulse 380ms infinite alternate ease-in-out;
+	-ms-animation: pulse 380ms infinite alternate ease-in-out;
+	-moz-animation: pulse 380ms infinite alternate ease-in-out;
+	-webkit-animation: pulse 380ms infinite alternate ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+  	transform:translate(0,0);
+	-ms-transform:translate3d(0,0,0);
+  }
+  100% {
+    transform:translate(0,20%);
+	-ms-transform:translate3d(0,20%,0);
+  }
+}
+
+@-moz-keyframes pulse {
+  0% {
+  	transform:translate(0,0);
+	-moz-transform:translate3d(0,0,0);
+  }
+  100% {
+    transform:translate(0,20%);
+	-moz-transform:translate3d(0,20%,0);
+  }
+}
+
+@-webkit-keyframes pulse {
+  0% {
+  	transform:translate(0,0);
+	-webkit-transform:translate3d(0,0,0);
+  }
+  100% {
+    transform:translate(0,20%);
+	-webkit-transform:translate3d(0,20%,0);
+  }
+}
+
+.twittertext {
+	font-size:42px;
+	color:#fff;
+	padding-left: 56px;
+	text-shadow: 1px 1px 1px rgba(0,0,0,.2);
+}
+
+.congrats{font-size: 49px;}
+
+</style>
+</head>
+<body>
+	<!-- JS -->
+	<script src="three.min.js"></script>
+	<script src="tween.min.js"></script>
+	<script src="TrackballControls.js"></script>
+	<script src="CSS3DRenderer.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="jquery.csv.min.js"></script>
+
+	<!-- Content -->
+	<div id="container"></div>
+	<div class="tanduay-logo"></div>
+	<div class="jump-logo"></div>
+	<div class="twitter">
+		<div class="twitter-icon"><img src="twitter.png"></div>
+		<span class="twittertext">#T5Polarity #PolarityCebu</span>
+	</div>
+<!--<div id="ann">
+	<span class="congrats">Congratulations to Gerd!</span>
+</div> -->
+
+<div id="menu" style="visibility:hidden;">
+<button id="sphere">SPHERE</button>
+<button id="helix">HELIX</button>
+<button id="grid">GRID</button>
+<button id="test2">Test2</button>
+</div>
+<script>
+var table, targets;
+var camera, scene, renderer;
+var controls;
+var objects = [];
+
+
+
+// THREE.PointLight = function ( color, intensity, distance ) {
+
+// 	THREE.Light.call( this, color );
+
+// 	this.intensity = ( intensity !== undefined ) ? intensity : 1;
+// 	this.distance = ( distance !== undefined ) ? distance : 0;
+
+// };
+
+
+
+// function addCube(){
+//    var geometry = new THREE.CubeGeometry( 20000, 20000, 20000 );
+
+//    var material = new THREE.MeshBasicMaterial( { color: 0x000000 } );
+
+//    var mesh = new THREE.Mesh( geometry, material );
+
+//   //scene is global
+//    scene.add(mesh);
+// }
+
+
+
+
+function PosCamera(selectedIndex) {
+
+	SelectedObject = objects[selectedIndex];
+
+	xsquare = SelectedObject.position.x*SelectedObject.position.x;
+	zsquare = SelectedObject.position.z*SelectedObject.position.z;
+
+	hyp = Math.sqrt(xsquare+zsquare);
+	hypnew = hyp + 320;
+
+	precameraz = SelectedObject.position.z*hypnew;
+	cameraz = precameraz/hyp;
+
+	precamerax = SelectedObject.position.x*hypnew;
+	camerax = precamerax/hyp;
+
+	newcamera = { 
+	  x: camerax,
+	  y: SelectedObject.position.y,
+	  z: cameraz,
+
+	
+	};
+
+
+
+	hypzoom = hyp + 400;
+
+	precamerazoomz = SelectedObject.position.z*hypzoom;
+	camerazoomz = precamerazoomz/hyp;
+
+	precamerazoomx = SelectedObject.position.x*hypzoom;
+	camerazoomx = precamerazoomx/hyp;
+
+	newcamerazoom = { 
+	  x: camerazoomx,
+	  y: SelectedObject.position.y,
+	  z: camerazoomz,
+	};
+
+	complete = {
+		x: 12000,
+		y: 12000,
+		z: 12000,
+	}
+
+
+
+	new TWEEN.Tween(camera.position)
+	  .to(newcamera, 1000)
+	  .onUpdate( render )
+		.onComplete( function () {
+	  			new TWEEN.Tween(camera.position)
+			  .to(newcamerazoom, 3000)
+			  .onUpdate( render )
+
+			  .start();
+	  })
+	  .start();
+
+
+	if (selectedIndex == 3) {
+		new TWEEN.Tween(camera.position)
+		  .to(complete, 1000)
+		  .onUpdate( render )
+			
+		  
+		  .start();
+	}
+
+
+
+	new TWEEN.Tween( camera.rotation )
+	  .to(SelectedObject.rotation, 1000)
+	  .onUpdate( render )
+	  .onComplete( function () {
+	  	setTimeout(function () {
+	  		PosCamera((selectedIndex + 1) % objects.length);
+	  	}, 3000);
+	  })
+	  .start();
+
+}
+
+
+var idoffset = 0;
+$(document).ready(function() {
+  $.ajax({
+	url : "/track/csv/"+ idoffset,
+	dataType: "text",
+	success : function (data) {
+		  var file = data[0];
+		  table = $.csv.toArrays(data);
+		  console.log(table);
+		  targets = { table: [], sphere: [], helix: [], grid: [], test2: [] };
+
+		  init();
+		  animate();
+	  	}
+	});
+});
+
+function init() {
+
+	camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+	// camera.position.z = 3000;
+
+/*
+	camera.position.z = 0;
+	camera.position.y = 5000;
+	camera.position.x = 0;
+	camera.rotation.x = 250;
+	camera.rotation.y = 0;
+	camera.rotation.z = 300;*/
+
+	scene = new THREE.Scene();
+
+	for ( var i = 1; i < 20; i ++ ) {
+
+		var item = table[ i ];
+
+		var element = document.createElement( 'div' );
+		element.className = 'element';
+		
+		var pic = document.createElement( 'div' );
+		pic.className = 'pic';
+		pic.innerHTML = '<div class="photo"><img src=' + item[ 5 ] + '></div>';
+		element.appendChild( pic );
+
+
+
+		var symbol = document.createElement( 'div' );
+		symbol.className = 'symbol';
+		symbol.innerHTML = item[ 4 ] + '<span class="symbol2"><br>@'+item[ 3 ] + '</span><br><div class="details">' +item [1]; + '</div>'
+		symbol.style.backgroundColor = '#F7F7F7';
+		element.appendChild( symbol );
+
+
+
+		var detailsphoto = document.createElement( 'div' );
+		detailsphoto.className = 'detailsphoto';
+		detailsphoto.innerHTML = '<div class="detailsphoto1"><div class="detailsphoto2"><div class="detailsphoto3"><img src=' + item[ 6 ] + '></div></div></div>';
+		element.appendChild( detailsphoto );
+
+
+		var object = new THREE.CSS3DObject( element );
+		object.position.x = Math.random() * 3000 + 2000;
+		object.position.y = Math.random() * 3000 + 2000;
+		object.position.z = Math.random() * 3000 + 2000;
+		scene.add( object );
+
+		object.info = item;
+
+		objects.push( object );
+
+	}
+
+	// sphere
+	
+	var vector = new THREE.Vector3();
+
+	for ( var i = 0, l = objects.length; i < l; i ++ ) {
+
+		var phi = Math.acos( -1 + ( 2 * i ) / l );
+		var theta = Math.sqrt( l * Math.PI ) * phi;
+
+		var object = new THREE.Object3D();
+
+		object.position.x = 2500 * Math.cos( theta ) * Math.sin( phi );
+		object.position.y = 2500 * Math.sin( theta ) * Math.sin( phi );
+		object.position.z = 2500 * Math.cos( phi );
+
+		vector.copy( object.position ).multiplyScalar( 2 );
+
+		object.lookAt( vector );
+
+		targets.sphere.push( object );
+
+
+	}
+
+
+	// test2
+
+	var vector = new THREE.Vector3();
+
+	for ( var i = 0, l = objects.length; i < l; i ++ ) {
+
+
+		var object = new THREE.Object3D();
+
+		object.position.x = ((Math.random()*5000)-2500);
+		object.position.y = ((Math.random()*3000)-1500);
+		object.position.z = ((Math.random()*5000)-2500);
+
+		vector.copy( object.position );
+		vector.x *= 2;
+		vector.z *= 2;
+
+		object.lookAt( vector );
+
+		targets.test2.push( object );
+
+	}
+
+	// helix
+
+	var vector = new THREE.Vector3();
+
+	for ( var i = 0, l = objects.length; i < l; i ++ ) {
+
+
+		var object = new THREE.Object3D();
+
+		object.position.x = ((Math.random()*6000)-2000);
+		object.position.y = ((Math.random()*6000)-2000);
+		object.position.z = ((Math.random()*6000)-2000);
+
+		vector.copy( object.position );
+		vector.x *= 2;
+		vector.z *= 2;
+
+		object.lookAt( vector );
+
+		targets.helix.push( object );
+
+	}
+
+	// grid
+	
+	for ( var i = 0; i < objects.length; i ++ ) {
+
+		var object = new THREE.Object3D();
+
+		object.position.x = ( ( i % 4 ) * 500 ) - 800;
+		object.position.y = ( - ( Math.floor( i / 3 ) % 6 ) * 400 ) + 800;
+		object.position.z = ( Math.floor( i / 9 ) ) * 1000 - 2000;
+
+		targets.grid.push( object );
+
+	}
+
+	
+	//
+
+	renderer = new THREE.CSS3DRenderer();
+	renderer.setSize( window.innerWidth, window.innerHeight );
+	renderer.domElement.style.position = 'absolute';
+	document.getElementById( 'container' ).appendChild( renderer.domElement );
+
+	//
+
+	// controls = new THREE.TrackballControls( camera, renderer.domElement );
+	// controls.rotateSpeed = 0.5;
+	// controls.addEventListener( 'change', render );
+
+	// var button = document.getElementById( 'sphere' );
+	// button.addEventListener( 'click', function ( event ) {
+
+	// 	transform( targets.sphere, 2000 );
+
+	// }, false );
+
+	// var button = document.getElementById( 'helix' );
+	// button.addEventListener( 'click', function ( event ) {
+
+	// 	transform( targets.helix, 2000 );
+
+	// }, false );
+
+	// var button = document.getElementById( 'grid' );
+	// button.addEventListener( 'click', function ( event ) {
+
+	// 	transform( targets.grid, 2000 );
+
+	// }, false );
+
+	// var button = document.getElementById( 'test2' );
+	// button.addEventListener( 'click', function ( event ) {
+
+	// 	transform( targets.test2, 2000 );
+
+	// }, false );
+
+
+
+	// lights10();
+	// lights20();
+	// lights30();
+	// lights40();
+	movetohelix();
+	// movecamera();
+	setTimeout(function() {
+		PosCamera(0);
+	}, 3000);
+
+	window.addEventListener( 'resize', onWindowResize, false );
+}
+
+
+function lights10() {
+
+	$( "#lights1" ).animate({
+    opacity: 0,
+    left:-500,
+    top:0,
+	  }, 500, function() {
+	  });
+
+	setTimeout(function () {
+	lights12();
+	}, 200);
+}
+
+function lights12() {
+
+	$( "#lights1" ).animate({
+   	left:100,
+   	top:-300,
+    opacity: 1,
+
+   	  }, 500, function() {
+	  });
+
+	setTimeout(function () {
+	lights10();
+	}, 200);
+}
+
+function lights20() {
+
+	$( "#lights2" ).animate({
+    opacity: 0,
+	  }, 300, function() {
+	  });
+
+	setTimeout(function () {
+	lights22();
+	}, 700);
+}
+
+function lights22() {
+
+	$( "#lights2" ).animate({
+    opacity: 1,	  
+	}, 300, function() {
+	  });
+
+	setTimeout(function () {
+	lights20();
+	}, 700);
+}
+
+function lights30() {
+
+	$( "#lights3" ).animate({
+    opacity: 0,
+    left:300,
+	top:300,
+	  }, 600, function() {
+	  });
+
+	setTimeout(function () {
+	lights32();
+	}, 100);
+}
+
+function lights32() {
+
+	$( "#lights3" ).animate({
+    opacity: 1,	
+    left:-300,
+	top:-300, 
+	}, 600, function() {
+	  });
+
+	setTimeout(function () {
+	lights30();
+	}, 100);
+}
+
+
+function lights40() {
+
+	$( "#lights4" ).animate({
+    opacity: 0,
+	  }, 500, function() {
+	  });
+
+	setTimeout(function () {
+	lights42();
+	}, 100);
+}
+
+function lights42() {
+
+	$( "#lights4" ).animate({
+    opacity: 1,	
+	}, 500, function() {
+	  });
+
+	setTimeout(function () {
+		lights40();
+	}, 10000);
+}
+
+
+/*m
+
+cameradistance = CameraPosition.position - 
+camera.position = cameradistance.
+
+*/
+
+
+
+function movetohelix() {
+	transform( targets.helix, 1500 );	
+/*	setTimeout(function () {
+	movetotest2();
+	}, 16000);*/
+}
+
+// function movetotest2() {
+// 	transform( targets.test2, 1500 );	
+// 	setTimeout(function () {
+// 	movetohelix();
+// 	}, 16000);
+// }
+
+
+
+
+
+function transform( targets, duration ) {
+
+	TWEEN.removeAll();
+
+	for ( var i = 0; i < objects.length; i ++ ) {
+
+		var object = objects[ i ];
+		var target = targets[ i ];
+
+		new TWEEN.Tween( object.position )
+			.to( { x: target.position.x, y: target.position.y, z: target.position.z }, Math.random() * duration + duration )
+			.easing( TWEEN.Easing.Exponential.InOut )
+			.start();
+
+		new TWEEN.Tween( object.rotation )
+			.to( { x: target.rotation.x, y: target.rotation.y, z: target.rotation.z }, Math.random() * duration + duration )
+			.easing( TWEEN.Easing.Exponential.InOut )
+			.start();
+
+	}
+
+	new TWEEN.Tween( this )
+		.to( {}, duration * 2 )
+		.onUpdate( render )
+		.start();
+
+}
+
+// function rotatepanel(){
+// 	objects[1].rotation.z = 100;
+// }
+
+
+
+function onWindowResize() {
+
+	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.updateProjectionMatrix();
+
+	renderer.setSize( window.innerWidth, window.innerHeight );
+
+}
+
+function animate() {
+
+	requestAnimationFrame( animate );
+
+	TWEEN.update();
+	// controls.update();
+
+}
+
+function render() {
+
+	renderer.render( scene, camera );
+
+}
+
+
+
+
+
+
+</script>
+</body>
+</html>

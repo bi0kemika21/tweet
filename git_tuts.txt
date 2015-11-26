@@ -1,0 +1,3 @@
+git remote add origin https://julianmacmang@bitbucket.org/jumpdigital/listener.git
+
+git push -u origin2 --all 

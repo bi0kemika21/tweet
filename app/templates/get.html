@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Get new trends from Twitter{% endblock %}
+
+{% block content %}
+	
+	{% if result %}
+	    <div class='search-results'>
+	        Search results for:
+	        <ol>
+	        {% for res in result %}
+	        	
+	            <li>{{res}}</li>
+	        	
+	        {% endfor %}
+	        </ol>
+	    </div>
+	{% endif %}
+
+{% endblock %}
+

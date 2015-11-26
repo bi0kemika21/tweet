@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}Search Page{% endblock %}
+{% block head %}
+    
+{% endblock %}
+{% block content %}
+   
+    <div class='searchbar'>        
+        {% from "_formhelpers.html" import render_field %}
+        <form method=post action="/search">
+          <p>
+              <span>{{ render_field(form.searchKeyword) }}</span>
+              <input type=submit value=Search>
+          </p>
+        </form>
+     <br />
+     <h1>{{message}}</h1>
+    </div>
+
+    {% if result %}
+
+    <div class='search-results'>        
+        <table class="table table-bordered">
+            <thead>
+                <th>Url</th>
+                <th>Image</th>
+                <th>Tweet</th>
+                <th>Retweets</th>
+                <th>Favorites</th>
+                <th>Name</th>
+                <th>Followers</th>
+                <th>Date</th>
+            </thead>
+        {% for res in result %}            
+            <tbody>
+                <tr {% if count == 1 %} class='active' {% set count = 0 %} {% else %} {% set count = 1 %}  {% endif %}>
+                    {% if res.entities.urls %}
+                        {% for url in res.entities.urls %}
+                            <td><a href={{url.expanded_url}}>{{url.expanded_url}} </a></td>
+                        {% endfor %}
+                    {% else %}
+                    <td></td>
+                    {% endif %} 
+                    {% if res.entities.media %}
+                        {% for image in res.entities.media %}
+                            <td><img src={{image.media_url}} height="300" width="300" /></td>
+                        {% endfor %}
+                    {% else %}
+                    <td></td>
+                    {% endif %}                    
+                    <td>{{res.text}}</td>
+                    <td>{{res.retweet_count}}</td>
+                    <td>{{res.favorite_count}}</td>                    
+                    <td>{{res.user.screen_name}}</td>
+                    <td>{{res.user.followers_count}}</td>                    
+                    <td>{{res.created_at}}</td>              
+                </tr>
+            </tbody>
+        {% endfor %}
+        </table>
+    </div>
+
+    {% endif %}
+
+{% endblock %}
+

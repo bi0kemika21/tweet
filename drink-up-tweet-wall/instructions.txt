@@ -1,0 +1,5 @@
+Instructions:
+
+Must change line 143 of index.html to your server address.
+
+Won't work unless on a server

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{meta.heading}}</h1>
+<!-- start table -->
+<table class="table table-bordered">
+<thead>
+  <th>Batch</th>
+  <th>Keywords</th>
+  <th>Time</th>
+  <th>Location</th>
+</thead>
+{% set count = 1 %}
+{% set row_num = 1 %}
+{% set limit_per_batch = 10 %}
+{% for item in result %}
+  {% if count <= limit_per_batch %}
+  <tbody>
+    {% if count == 1 %}
+      <tr class='active'>
+        <td>{{row_num}}</td><td></td><td></td><td></td>
+      </tr>
+    {% endif %}
+    {% set count = count + 1%}
+    <tr>
+      <td>&nbsp;</td>
+      <td>{{item.keyword}}</td>
+      <td>{{item.timestamp}}</td>
+      <td>{{item.woe_code}}</td>
+    </tr>
+    {% if count == 11 %}
+      {% set count = 1%}
+      {% set row_num = row_num + 1%}
+    {% endif %}       
+  {% endif %}
+{% endfor %}
+  </tbody>
+</table>
+<!-- end of table-->
+{% endblock %}

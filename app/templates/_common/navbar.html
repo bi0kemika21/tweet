@@ -1,0 +1,43 @@
+  <div class="navbar-wrapper">
+      <div class="container">
+
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="{{ url_for('show_trends') }}">Tweet Harvester</a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="{{ url_for('search') }}">Search trends</a></li>
+                <li><a href="{{ url_for('show') }}">Search trace</a></li>
+                <li class="dropdownss">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Get new trends!<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{{ url_for('get_trending_keywords',country_code='ph')}}">Philippines</a></li>
+                    <li><a href="{{ url_for('get_trending_keywords',country_code='us')}}">USA</a></li>
+                    <li><a href="{{ url_for('get_trending_keywords',country_code='global')}}">Global</a></li>
+                  </ul>
+                </li>
+                <li class="dropdownss">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Trending List<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{{ url_for('show_trends_country',country_code='ph') }}">Philippines</a></li>
+                    <li><a href="{{ url_for('show_trends_country',country_code='us') }}">USA</a></li>
+                    <li><a href="{{ url_for('show_trends') }}">Global</a></li>
+                  </ul>
+                </li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>

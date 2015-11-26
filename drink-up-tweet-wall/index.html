@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="109">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<title>three.js css3d - Twee Dee - AEL 2013</title>
+<style>
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+    overflow: hidden;
+    background-color: #CEB9A5;
+    background-image: url(01.png)
+}
+
+
+
+a {
+    color: #ffffff;
+}
+
+
+
+#menu {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.element {
+    padding:20px;
+    border-radius: 5px;
+
+}
+
+
+.photo img{
+	width:100px;
+	height:100px;
+	float:left;
+	border-radius: 10px;
+}
+
+.detailsphoto1 {
+	max-width: 250px;
+	position:absolute;
+	bottom:60%;
+	right:60px;
+}
+
+.detailsphoto2 {
+	border-radius: 10px;
+	margin-left:70px;
+}
+
+.detailsphoto2 img {
+	max-width: 250px;
+	border-radius: 10px;
+	border: 10px solid #F7F7F7;
+}
+
+.detailsphoto3 {
+	border-radius: 20px;
+}
+
+.detailsphoto {
+	padding:20px;
+	border-radius: 20px;
+	max-width: 300px;
+	float:right;
+}
+
+.pic {
+	margin-left:-70px;
+	padding:20px;
+	background-color: #F7F7F7;
+	width:100px;
+	height:100px;
+	float:left;
+	padding-right:0px;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+
+}
+
+.symbol2 {
+	color: #8899a6;
+	font-weight: 400;
+}
+
+.element .symbol {
+	width: 450px;
+	font-size: 20px;
+	text-align: left;
+	float:left;
+	color:#29A9E1;
+	font-weight: 700;
+	font-size:20pt;
+	padding:20px;
+	padding-top:10px;
+	padding-bottom:20px;
+	border-top-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	padding-top:20px;
+}
+
+.details {
+	font-size: 24px;
+	color: #292f33;
+	font-weight: 400;
+	padding-top:10px;
+}
+
+button {
+    color: rgba(255,144,0,0.75);
+    background: transparent;
+    outline: 1px solid rgba(255,144,0,0.75);
+    border: 0px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: rgba(255,144,0,0.5);
+}
+button:active {
+    color: #000000;
+    background-color: rgba(255,144,0,0.75);
+}
+			
+
+#twitter {
+	position: absolute;
+	bottom:20px;
+	left:20px;
+}
+
+.twittertext {
+	font-size:50pt;
+	color:#ffffff;
+	text-shadow: 0px 0px 10px rgba(0,0,0, 0.3);
+}
+
+#logos {
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+
+#logos img {
+	height:170px;
+}
+
+.spons {
+	background-color: #F7F7F7;
+	padding:20px;
+	border-radius: 20px;
+}
+
+</style>
+</head>
+<body>
+<script src="three.min.js"></script>
+<script src="tween.min.js"></script>
+<script src="TrackballControls.js"></script>
+<script src="CSS3DRenderer.js"></script>
+<script src="jquery.js"></script>
+<script src="jquery.csv.min.js"></script>
+
+
+<!-- <video autoplay loop poster="polina.jpg" id="bgvid">
+<source src="blue.mp4" type="video/mp4">
+</video> -->
+
+
+<div id="container"></div>
+<div id="twitter">
+	<img src="twitter.png"><span class="twittertext">#DrinkUpPH</span>
+</div>
+<div id="logos"><img src="logos.png"></div>
+<div id="menu" style="visibility:hidden;">
+<button id="sphere">SPHERE</button>
+<button id="helix">HELIX</button>
+<button id="grid">GRID</button>
+<button id="test2">Test2</button>
+</div>
+<script>
+var table, targets;
+var camera, scene, renderer;
+var controls;
+var objects = [];
+var sponsobject2 = [];
+
+var sponsors = [ 	"sponsors/spons-07.png", "sponsors/spons-02.png",  
+									"sponsors/spons-01.png", "sponsors/spons-03.png", 
+									"sponsors/spons-04.png", "sponsors/spons-05.png","sponsors/spons-06.png"
+									];
+
+var newcamerawooo = [];
+
+
+
+
+THREE.PointLight = function ( color, intensity, distance ) {
+
+	THREE.Light.call( this, color );
+
+	this.intensity = ( intensity !== undefined ) ? intensity : 1;
+	this.distance = ( distance !== undefined ) ? distance : 0;
+
+};
+
+
+
+
+function addCube(){
+   var geometry = new THREE.CubeGeometry( 20000, 20000, 20000 );
+
+   var material = new THREE.MeshBasicMaterial( { color: 0x000000 } );
+
+   var mesh = new THREE.Mesh( geometry, material );
+
+  //scene is global
+   scene.add(mesh);
+}
+
+
+
+
+function PosCamera(selectedIndex) {
+
+
+	SelectedObject = newcamerawooo[selectedIndex];
+	SelectedObject2 = newcamerawooo[selectedIndex];
+
+	cameratest = SelectedObject.element.photofix;
+
+	if (selectedIndex % 5 === 0) {
+		cameratest = SelectedObject;
+	}
+
+	else {
+		cameratest = SelectedObject.element.photofix;
+	}
+	
+
+
+	xsquare = SelectedObject.position.x*SelectedObject.position.x;
+	zsquare = SelectedObject.position.z*SelectedObject.position.z;
+
+	hyp = Math.sqrt(xsquare+zsquare);
+
+	hypnew = hyp + 320;
+
+	precameraz = SelectedObject.position.z*hypnew;
+	cameraz = precameraz/hyp;
+
+	precamerax = SelectedObject.position.x*hypnew;
+	camerax = precamerax/hyp;
+
+	cameray = SelectedObject.position.y;
+	cameray2 = SelectedObject.position.y + 30;
+
+	if (cameratest.length < 1) {
+		cameray = SelectedObject.position.y;
+		cameray2 = SelectedObject.position.y;
+	} else {
+		cameray = SelectedObject.position.y + 60;
+		cameray2 = SelectedObject.position.y + 30;
+	}
+
+	newcamera = { 
+	  x: camerax,
+	  y: cameray,
+	  z: cameraz,
+	};
+
+// if (selectedIndex % 5 === 0) {
+// 	newcamera = {
+// 			  x: camerax,
+// 	  y: cameray,
+// 		z: cameraz - 2000,
+// 	}
+// }
+// else {
+// 	// newcamera = {
+// 	// 	z: cameraz;
+// 	// }
+// }
+
+	hypzoom = hyp + 400;
+
+	precamerazoomz = SelectedObject.position.z*hypzoom;
+	camerazoomz = precamerazoomz/hyp;
+
+	precamerazoomx = SelectedObject.position.x*hypzoom;
+	camerazoomx = precamerazoomx/hyp;
+
+	newcamerazoom = { 
+	  x: camerazoomx,
+	  y: cameray2,
+	  z: camerazoomz,
+	};
+
+	complete = {
+		x: 12000,
+		y: 12000,
+		z: 12000,
+	}
+	
+	if (selectedIndex == 26) {
+		new TWEEN.Tween(camera.position)
+		  .to(complete, 1000)
+		  .onUpdate( render )
+			
+		  
+		  .start();
+	}
+
+	else {
+		new TWEEN.Tween(camera.position)
+		  .to(newcamera, 1000)
+		  .onUpdate( render )
+			.onComplete( function () {
+		  			new TWEEN.Tween(camera.position)
+				  .to(newcamerazoom, 3000)
+				  .onUpdate( render )
+
+				  .start();
+		  })
+		  .start();
+	}
+
+
+
+
+
+	new TWEEN.Tween( camera.rotation )
+	  .to(SelectedObject.rotation, 1000)
+	  .onUpdate( render )
+	  .onComplete( function () {
+	  	setTimeout(function () {
+	  		PosCamera((selectedIndex + 1) % newcamerawooo.length);
+	  		console.log(SelectedObject);
+	  	}, 3000);
+	  })
+	  .start();
+
+
+}
+
+var idOffset = 0;
+$(document).ready(function() {
+  $.ajax({
+	url : "/track/csv/" + idOffset,
+	dataType: "text",
+	success : function (data) {
+		  var file = data[0];
+		  table = $.csv.toArrays(data);
+		  console.log(table);
+		  targets = { table: [], sphere: [], helix: [], grid: [], test2: [] };
+
+		  init();
+		  animate();
+	  	}
+	});
+});
+function init() {
+
+	camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+	scene = new THREE.Scene();
+
+	for ( var i = 1; i < 29; i ++ ) {
+
+		var item = table[ i ];
+
+		var element = document.createElement( 'div' );
+		element.className = 'element';
+		element.photofix = item[ 6 ];
+
+		var pic = document.createElement( 'div' );
+		pic.className = 'pic';
+		pic.innerHTML = '<div class="photo"><img src=' + item[ 5 ] + '></div>';
+		element.appendChild( pic );
+
+		var symbol = document.createElement( 'div' );
+		symbol.className = 'symbol';
+		symbol.innerHTML = item[ 4 ] + '<span class="symbol2"><br>@'+item[ 3 ] + '</span><br><div class="details">' +item [1]; + '</div>'
+		symbol.style.backgroundColor = '#F7F7F7';
+		element.appendChild( symbol );
+
+		var detailsphoto = document.createElement( 'div' );
+		detailsphoto.className = 'detailsphoto';
+		detailsphoto.innerHTML = '<div class="detailsphoto1"><div class="detailsphoto2"><div class="detailsphoto3"><img src=' + item[ 6 ] + '></div></div></div>';
+		element.appendChild( detailsphoto );
+
+
+		var object = new THREE.CSS3DObject( element );
+		object.position.x = Math.random() * 3000 + 2000;
+		object.position.y = Math.random() * 3000 + 2000;
+		object.position.z = Math.random() * 3000 + 2000;
+		scene.add( object );
+
+
+		object.info = item;
+
+		objects.push( object );
+
+	}
+
+
+	for (var i = 0; i < sponsors.length ; i++ ) {
+		var spons = document.createElement( 'div' );
+		spons.className = 'spons';
+		spons.innerHTML =  '<img src=' + sponsors[ i ] + '>';
+
+		var sponsobject = new THREE.CSS3DObject( spons );
+		sponsobject.position.x = Math.random() * 3000 + 2000;
+		sponsobject.position.y = Math.random() * 3000 + 2000;
+		sponsobject.position.z = Math.random() * 3000 + 2000;
+		scene.add( sponsobject );
+
+		sponsobject2.push( sponsobject );
+	}
+
+
+/*	for ( var i = 0; i < 1; i++) {
+		for (var j = 0; j < 25; j++) {
+			if (j % 5 === 0) {
+				newcamerawooo.push(sponsobject2[ i ]);
+			}
+			else {
+				newcamerawooo.push(objects[ j ]);
+			}
+		}
+	}*/
+
+
+	for (var i = 0; i < sponsobject2.length; i++) {
+		for (var j = 0; j < objects.length; j++) {
+			if (j % 5 === 0) {
+				i ++;
+				newcamerawooo.push(sponsobject2[ i ]);
+			}
+			else {
+				newcamerawooo.push(objects[ j ]);
+			}
+		};
+	};
+
+
+	// helix
+
+	var vector = new THREE.Vector3();
+
+	for ( var i = 0, l = objects.length; i < l; i ++ ) {
+
+
+		var object = new THREE.Object3D();
+		object.position.x = ((Math.random()*10000)-5000);
+		object.position.y = ((Math.random()*10000)-5000);
+		object.position.z = ((Math.random()*10000)-5000);
+
+		// var spons2 = new THREE.Object3D();
+		// spons2.position.x = ((Math.random()*10000)-5000);
+
+		vector.copy( object.position );
+		vector.x *= 2;
+		vector.z *= 2;
+
+		object.lookAt( vector );
+
+		targets.helix.push( object );
+
+		var sponsobject = new THREE.Object3D();
+		sponsobject.position.x = ((Math.random()*10000)-5000);
+		sponsobject.position.y = ((Math.random()*10000)-5000);
+		sponsobject.position.z = ((Math.random()*10000)-5000);
+
+		// var spons2 = new THREE.Object3D();
+		// spons2.position.x = ((Math.random()*10000)-5000);
+
+		vector.copy( sponsobject.position );
+		vector.x *= 2;
+		vector.z *= 2;
+
+		sponsobject.lookAt( vector );
+
+		targets.helix.push( sponsobject );
+
+	}
+
+	renderer = new THREE.CSS3DRenderer();
+	renderer.setSize( window.innerWidth, window.innerHeight );
+	renderer.domElement.style.position = 'absolute';
+	document.getElementById( 'container' ).appendChild( renderer.domElement );
+
+
+	movetohelix();
+	setTimeout(function() {
+		PosCamera(0);
+	}, 3000);
+
+	window.addEventListener( 'resize', onWindowResize, false );
+
+}
+
+function movetohelix() {
+	transform( targets.helix, 1500 );	
+}
+
+function transform( targets, duration ) {
+
+	TWEEN.removeAll();
+
+	for ( var i = 0; i < objects.length; i ++ ) {
+
+		var object = newcamerawooo[ i ];
+		var target = targets[ i ];
+
+		new TWEEN.Tween( object.position )
+			.to( { x: target.position.x, y: target.position.y, z: target.position.z }, Math.random() * duration + duration )
+			.easing( TWEEN.Easing.Exponential.InOut )
+			.start();
+
+		new TWEEN.Tween( object.rotation )
+			.to( { x: target.rotation.x, y: target.rotation.y, z: target.rotation.z }, Math.random() * duration + duration )
+			.easing( TWEEN.Easing.Exponential.InOut )
+			.start();
+
+/*		new TWEEN.Tween( sponsobject.rotation )
+			.to( { x: target.rotation.x, y: target.rotation.y, z: target.rotation.z }, Math.random() * duration + duration )
+			.easing( TWEEN.Easing.Exponential.InOut )
+			.start();*/
+
+	}
+
+	new TWEEN.Tween( this )
+		.to( {}, duration * 2 )
+		.onUpdate( render )
+		.start();
+
+}
+
+function onWindowResize() {
+
+	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.updateProjectionMatrix();
+
+	renderer.setSize( window.innerWidth, window.innerHeight );
+
+}
+
+function animate() {
+
+	requestAnimationFrame( animate );
+
+	TWEEN.update();
+	// controls.update();
+
+}
+
+function render() {
+
+	renderer.render( scene, camera );
+
+}
+
+
+
+
+
+
+</script>
+</body>
+</html>

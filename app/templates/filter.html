@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Track Filters{% endblock %}
+{% block head %}
+    
+{% endblock %}
+{% block content %}
+   
+    <div class='searchbar'>        
+        {% from "_formhelpers.html" import render_field %}
+        <form method=post action="">
+          <p>
+              <span>{{ render_field(form.filterText) }}</span>
+              <input type=submit value=Search>
+          </p>
+        </form>
+     <br />
+     <h1>{{message}}</h1>
+    </div>
+ 
+{% endblock %}
+

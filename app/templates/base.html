@@ -1,0 +1,35 @@
+<html>
+  <head>
+    {% if meta %}
+    <title>{{meta.title}}</title>
+    {% else %}
+    <title>Social Media Listener</title>
+    {% endif %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <div class="container">
+    {% include "_common/navbar.html" %}
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li>{{ message }} </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+
+    {% if debug %}
+      <h1>{{debug}}</h1>
+    {% endif %}
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+     <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js')}}"></script>
+    </div>
+  </body>
+</html>

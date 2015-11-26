@@ -1,0 +1,83 @@
+from app import db, models
+import datetime
+t = models.Trends(keyword='#hash', woe_id='200630147', woe_code='PH', timestamp = datetime.datetime.utcnow() )
+db.session.add(t)
+
+t = models.Trends(keyword='#hash2', woe_id='2006301472', woe_code='PH', timestamp = datetime.datetime.utcnow() )
+db.session.commit()
+
+trends = models.Trends.query.all()
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>> u = models.User(nickname='john', email='john@email.com', role=models.ROLE_USER)
+>>> db.session.add(u)
+>>> db.session.commit()
+>>> u = models.User(nickname='susan', email='susan@email.com', role=models.ROLE_USER)
+>>> db.session.add(u)
+>>> db.session.commit()
+>>> users = models.User.query.all()
+>>> print users
+[<User u'john'>, <User u'susan'>]
+>>> for u in users:
+...     print u.id,u.nickname
+...
+1 john
+2 susan
+>>>
+
+
+>>> import datetime
+>>> u = models.User.query.get(1)
+>>> p = models.Post(body='my first post!', timestamp=datetime.datetime.utcnow(), author=u)
+>>> db.session.add(p)
+>>> db.session.commit()
+
+
+# get all posts from a user
+>>> u = models.User.query.get(1)
+>>> print u
+<User u'john'>
+>>> posts = u.posts.all()
+>>> print posts
+[<Post u'my first post!'>]
+
+# obtain author of each post
+>>> for p in posts:
+...     print p.id,p.author.nickname,p.body
+...
+1 john my first post!
+
+# a user that has no posts
+>>> u = models.User.query.get(2)
+>>> print u
+<User u'susan'>
+>>> print u.posts.all()
+[]
+
+# get all users in reverse alphabetical order
+>>> print models.User.query.order_by('nickname desc').all()
+[<User u'susan'>, <User u'john'>]
+>>>
+
+>>> users = models.User.query.all()
+>>> for u in users:
+...     db.session.delete(u)
+...
+>>> posts = models.Post.query.all()
+>>> for p in posts:
+...     db.session.delete(p)
+...
+>>> db.session.commit()
+>>>
+

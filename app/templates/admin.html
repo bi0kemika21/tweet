@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Track Filters{% endblock %}
+{% block head %}
+    
+{% endblock %}
+{% block content %}
+    <script language="JavaScript">
+      function toggle(source) {
+        checkboxes = document.getElementsByName('check');
+        for(var i=0, n=checkboxes.length;i<n;i++) {
+          checkboxes[i].checked = source.checked;
+        }
+      }
+    </script>
+    <h1>{{message}}</h1>    
+    {% from "_formhelpers.html" import render_field %}
+    <form method="POST" action="">    
+    <div class='search-results'>        
+        <table class="table table-bordered">
+            <thead>
+                <th><input type="checkbox" onClick="toggle(this)" /> Enable/Disable <br/></th>
+                <th>Keyword</th>
+                <th>Tweet</th>  
+                <th>Status</th>
+            </thead>
+        {% for res in result %}            
+            <tbody>
+                <tr {% if count == 1 %} class='active' {% set count = 0 %} {% else %} {% set count = 1 %}{% endif %}>
+                    <td><div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="check" value="{{res.id}}">
+                    </label>
+                    </div></td>
+                    <td>{{res.tweet}}</td>
+                    <td>{{res.key}}</td>
+                    <td>{{res.enable}}</td> 
+                </tr>
+
+            </tbody>  
+        {% endfor %}
+
+        </table>
+    </div>
+
+        <input type="submit" value="Enable" name="submit-enable" />
+        <input type="submit" value="Disable" name="submit-disable" />
+    </form>
+     
+{% endblock %}
+

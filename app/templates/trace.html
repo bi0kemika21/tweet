@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}Search Page{% endblock %}
+{% block head %}
+    
+{% endblock %}
+{% block content %}
+   
+    <div class='searchbar'>        
+        {% from "_formhelpers.html" import render_field %}
+        <form method=post action="/track/show">
+          <p>
+              <span>{{ render_field(form.searchTrace) }}</span>
+              <input type=submit value=Search>
+          </p>
+        </form>
+     <br />
+     <h1>{{message}}</h1>
+    </div>
+ {% if result %}
+
+    <div class='search-results'>        
+        <table class="table table-bordered">
+            <thead>
+                <th>Keyword</th>
+                <th>Tweet</th>
+                <th>Retweets</th>
+                <th>Favorites</th>
+                <th>Twitter Name</th>
+                <th>Real Name</th>
+                <th>Followers</th>
+                <th>Date</th>
+                <th>Impression</th>
+            </thead>
+            {% set f = 0 %}
+            {% set h = 0 %} 
+            {% set g = '' %}
+        {% for res in result %}            
+            <tbody>
+                <tr {% if count == 1 %} class='active' {% set count = 0 %} {% else %} {% set count = 1 %}  {% endif %} >
+                    {% if g != res.tweet %}
+                    <td>{{res.tweet}}</td>
+                    <td>{{res.key}}</td>
+                    <td>{{res.retweet}}</td>                    
+                    <td>{{res.favorites}}</td>
+                    <td>{{res.name}}</td>
+                    <td>{{res.real}}</td>                    
+                    <td>{{res.followers}}</td>                
+                    <td>{{res.date}}</td>
+                    {% set f = 0 %}
+                    {% set h = res.followers %}  
+                    {% set f = f + res.followers %}
+                    <td>{{h}}</td>
+                    {% else %}
+                    <td></td>
+                    <td>{{res.key}}</td>
+                    <td>{{res.retweet}}</td>                    
+                    <td>{{res.favorites}}</td>
+                    <td>{{res.name}}</td>
+                    <td>{{res.real}}</td>                    
+                    <td>{{res.followers}}</td>                
+                    <td>{{res.date}}</td> 
+                    {% set f = f + res.followers %}
+                    <td>{{f}}</td>
+                    {% endif %}                   
+                    {% set g = res.tweet %}
+                    
+                </tr>
+
+            </tbody>
+        {% endfor %}
+
+        </table>
+    </div>
+
+    {% endif %}
+
+{% endblock %}
+
