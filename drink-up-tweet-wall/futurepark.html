@@ -437,7 +437,7 @@ $(document).ready(function() {
 		  var file = data[0];
 		  table = $.csv.toArrays(data);
 		  targets = { table: [], sphere: [], helix: [], grid: [], test2: [] };
-
+		  console.log(table);
 		  init();
 		  animate();
 	  	}
@@ -457,10 +457,10 @@ function init() {
 	for ( var i = 1; i < 75; i ++ ) {
 
 		var item = table[ i ];
-		var embedcheck = item[ 6 ].length;
-
+		// var embedcheck = item[ 6 ].length;
+ 		console.log(item[ 6 ]);
 		var element = document.createElement( 'div' );
-		if (embedcheck > 0) {
+		if (item[ 6 ] != "") {
 			element.className = 'element ewembed tweet'+i;
 		} else {
 			element.className = 'element tweet'+i;
