@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta http-equiv="refresh" content="82"> 
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<title>three.js css3d - Twee Dee - AEL 2013</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+<style>
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+    overflow: hidden;
+}			
+
+.pic {
+	width:100px;
+	height:100px;
+	border-radius:55px;
+	overflow: hidden;
+	border:10px solid rgba(0,0,0,0.5);
+	position: absolute;
+	bottom:40px;
+	left:70px;
+}
+
+.pic img {
+	width:150px;
+}
+
+.element {
+	width:1000px;
+	height:500px;
+	background-position: center;
+}
+
+.name {
+	color:#fff;
+	font-family: 'Open Sans';
+	font-size: 30pt;
+	font-weight: 300;
+	position: absolute;
+	left:220px;
+	bottom:90px;
+}
+
+.symbol {
+	color:#fff;
+	position: absolute;
+	left:220px;
+	bottom:60px;
+	font-family: 'Open Sans';
+	font-size: 20pt;
+}
+
+.details {
+	color:#fff;
+	position: absolute;
+	left:80px;
+	top:50px;	
+	font-family: 'Open Sans';
+	font-size: 25pt;
+	line-height: 50px;
+	height: 280px;
+	width:840px;
+}
+
+.embed {
+	width:500px;
+	height:500px;
+	position: absolute;
+	left:500px;
+}
+
+.embed1 {
+	width:500px;
+	height:500px;
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position: center;
+}
+
+.details table {
+	height:100%;
+}
+
+.ewembed .details {
+	width:420px;
+	left:50px;
+	font-size: 18pt;
+	line-height: 46px;
+}
+
+.ewembed .name {
+	width:420px;
+	font-size: 22pt;
+	left:190px;
+}
+
+.ewembed .pic {
+	left:40px;
+}
+
+.ewembed .symbol {
+	width:400px;
+	font-size: 16pt;
+	left:190px;
+}
+
+
+
+
+.element{
+	background:url(img/tabbg-01.png);
+}
+
+.tweet1, .tweet2, .tweet3, .tweet4, .tweet67, .tweet68, .tweet69, .tweet70 {
+	background:url(img/tabbg-01.png);
+	z-index: 1000;
+}
+
+.tweet5, .tweet6, .tweet7, .tweet71, .tweet72, .tweet73, .tweet74{
+	background:url(img/tabbg-02.png);
+}
+
+.tweet11, .tweet8, .tweet9, .tweet10, .tweet59, .tweet60, .tweet61, .tweet62 {
+	background:url(img/tabbg-04.png);
+	z-index: 10000;
+}
+
+.tweet12, .tweet13, .tweet14, .tweet63, .tweet64, .tweet65, .tweet66 {
+	background:url(img/tabbg-03.png);
+}
+
+.tweet16, .tweet17, .tweet18 {
+	background:url(img/tabbg-06.png);
+}
+
+.tweet15, .tweet19, .tweet20 {
+	background:url(img/tabbg-05.png);
+}
+
+.tweet21, .tweet22, .tweet23, .tweet24 {
+	background:url(img/tabbg-07.png);
+}
+
+.tweet25, .tweet26, .tweet27 {
+	background:url(img/tabbg-08.png);
+}
+
+
+.tweet28, .tweet29, .tweet30, .tweet31, .tweet44, .tweet45, .tweet46, .tweet47 {
+	background:url(img/tabbg-09.png);
+	z-index: 1000;
+}
+
+.tweet32, .tweet33, .tweet34, .tweet35, .tweet48, .tweet49, .tweet50, .tweet51 {
+	background:url(img/tabbg-10.png);
+}
+
+.tweet36, .tweet37, .tweet38, .tweet39, .tweet52, .tweet53, .tweet54, .tweet55 {
+	background:url(img/tabbg-11.png);
+	z-index: 1000;
+}
+
+.tweet40, .tweet41, .tweet42, .tweet43, .tweet56, .tweet57, .tweet58 {
+	background:url(img/tabbg-12.png);
+}
+
+
+
+.logo img {
+	margin-left:1000px;
+	margin-top:1500px;
+	height:2000px;
+}
+
+.logo {
+	opacity: 0;
+	z-index:999999;
+}
+
+.logo2 img {
+	margin-left:1000px;
+	margin-top:500px;
+	height:2000px;
+}
+
+.logo2 {
+	opacity: 0;
+	z-index:999999;
+}
+
+.logo3 img {
+	height:2250px;
+	margin-top:1750px;
+}
+
+.logo3 {
+	opacity:0;
+	z-index:999999;
+}
+
+.logo4 img {
+	height:2100px;
+	margin-top:1500px;
+	margin-left:1000px;
+}
+
+.logo4 {
+	opacity: 0;
+	z-index:999999;
+}
+
+.logo5 img {
+	height:2000px;
+	margin-top:500px;
+	margin-left:1000px;
+}
+
+.logo5 {
+	opacity: 0;
+	z-index:99999999;
+}
+
+.logo6 img {
+	height:2100px;
+	margin-top:500px;
+	margin-left:500px;
+}
+
+.logo6 {
+	opacity: 0;
+	z-index:99999999;
+}
+
+
+</style>
+</head>
+<body style="background-color: #000000;">
+<script src="three.min.js"></script>
+<script src="tween.min.js"></script>
+<script src="CSS3DRenderer.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="jquery.csv.min.js"></script>
+
+<div id="container"></div>
+
+<script>
+var table, targets;
+var camera, scene, renderer;
+var controls;
+var objects = [];
+var newshape1 = [];
+
+function addCube(){
+   var geometry = new THREE.CubeGeometry( 20000, 20000, 20000 );
+   var material = new THREE.MeshBasicMaterial( { color: 0x000000 } );
+   var mesh = new THREE.Mesh( geometry, material );
+   scene.add(mesh);
+}
+
+
+
+function PosCamera(selectedIndex) {
+
+
+	SelectedObject = objects[selectedIndex];
+
+	xsquare = SelectedObject.position.x*SelectedObject.position.x;
+	zsquare = SelectedObject.position.z*SelectedObject.position.z;
+
+	hyp = Math.sqrt(xsquare+zsquare);
+	hypnew = hyp + 500;
+
+	precameraz = SelectedObject.position.z*hypnew;
+	cameraz = precameraz/hyp;
+
+	precamerax = SelectedObject.position.x*hypnew;
+	camerax = precamerax/hyp;
+
+	newcamera = { 
+	  x: camerax,
+	  y: SelectedObject.position.y,
+	  z: cameraz,
+	};
+
+	hypzoom = hyp + 600;
+
+	precamerazoomz = SelectedObject.position.z*hypzoom;
+	camerazoomz = precamerazoomz/hyp;
+
+	precamerazoomx = SelectedObject.position.x*hypzoom;
+	camerazoomx = precamerazoomx/hyp;
+
+	newcamerazoom = { 
+	  x: camerazoomx,
+	  y: SelectedObject.position.y,
+	  z: camerazoomz,
+	};
+
+
+	new TWEEN.Tween(camera.position)
+	  .to(newcamera, 1000)
+	  .onUpdate( render )
+		.onComplete( function () {
+	  			new TWEEN.Tween(camera.position)
+			  .to(newcamerazoom, 3000)
+			  .onUpdate( render )
+
+			  .start();
+	  })
+	  .start();
+
+	new TWEEN.Tween( camera.rotation )
+	  .to(SelectedObject.rotation, 1000)
+	  .onUpdate( render )
+	  .onComplete( function () {
+	  		
+	  	setTimeout(function () {
+	  		PosCamera((selectedIndex + 1) % objects.length);
+	  	}, 3000);
+	  })
+	  .start();
+
+
+
+
+// camera.position.z = (SelectedObject.position.z*())
+
+
+}
+
+
+function GridCamera(selectedIndex) {
+
+	SelectedObject = objects[selectedIndex];
+
+	newcamera = {
+		x: SelectedObject.position.x,
+		y: SelectedObject.position.y,
+		z: SelectedObject.position.z + 600,
+	};
+
+	newcamerazoom = {
+		x: SelectedObject.position.x,
+		y: SelectedObject.position.y,
+		z: SelectedObject.position.z + 700,
+	};
+
+	new TWEEN.Tween(camera.position)
+	  .to(newcamera, 1000)
+	  .onUpdate( render )
+		.onComplete( function () {
+	  			new TWEEN.Tween(camera.position)
+			  .to(newcamerazoom, 3000)
+			  .onUpdate( render )
+
+			  .start();
+	  })
+	  .start();
+
+	new TWEEN.Tween( camera.rotation )
+	  .to(SelectedObject.rotation, 1000)
+	  .onUpdate( render )
+	  .onComplete( function () {
+	  		
+	  	setTimeout(function () {
+	  		GridCamera((selectedIndex + 1) % objects.length);
+	  	}, 3000);
+	  })
+	  .start();
+
+
+}
+
+function LogoCamera(selectedIndex) {
+
+	console.log('horray');
+	
+	
+
+	lnewcamera = {
+		x: 0,
+		y: 0,
+		z: 3000,
+	};
+
+	lnewcamerazoom = {
+		x: 0,
+		y: 0,
+		z: 3000,
+	};
+
+	lnewrotation = {
+		x: 0,
+		y: 0,
+		z: 0,
+	};
+
+	new TWEEN.Tween(camera.position)
+	  .to(lnewcamera, 1000)
+	  .onUpdate( render )
+	  .onComplete( function () {
+		  		
+		  })
+
+	  .start();
+
+	new TWEEN.Tween( camera.rotation )
+		  .to(lnewrotation.rotation, 1000)
+		  .onUpdate( render )
+		  .onComplete( function () {
+		  		
+		  })
+		  .start();
+
+
+}
+
+
+var idOffset = 0;
+$(document).ready(function() {
+  $.ajax({
+	url : "/track/csv/" + idOffset,
+	dataType: "text",
+	success : function (data) {
+		  var file = data[0];
+		  table = $.csv.toArrays(data);
+		  targets = { table: [], sphere: [], helix: [], grid: [], test2: [] };
+
+		  init();
+		  animate();
+	  	}
+	});
+});
+
+function init() {
+
+	camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+	camera.position.z = 3000;
+
+	scene = new THREE.Scene();
+
+
+
+
+	for ( var i = 1; i < 75; i ++ ) {
+
+		var item = table[ i ];
+		var embedcheck = item[ 2 ].length;
+
+		var element = document.createElement( 'div' );
+		if (embedcheck > 0) {
+			element.className = 'element ewembed tweet'+i;
+		} else {
+			element.className = 'element tweet'+i;
+		}
+		
+		
+		var pic = document.createElement( 'div' );
+		pic.className = 'pic';
+		pic.innerHTML = '<img src=' + item[ 5 ] + '>';
+		element.appendChild( pic );
+
+		var name = document.createElement( 'div' );
+		name.className = 'name';
+		name.textContent = item[ 4 ];
+		element.appendChild( name );
+
+		var symbol = document.createElement( 'div' );
+		symbol.className = 'symbol';
+		symbol.textContent = '@'+item[ 3 ];
+		element.appendChild( symbol );
+
+		
+
+
+		var details = document.createElement( 'div' );
+		details.className = 'details';
+		details.innerHTML = '<table><tr><td>'+item[ 1 ]+'</td></tr></table>'; 
+		element.appendChild( details );
+
+		var embed = document.createElement( 'div' );
+		embed.className = 'embed';
+		embed.innerHTML = '<div class="embed1" style="background:url('+ item[ 6 ]+'); background-size:cover;">';
+		element.appendChild( embed );
+
+
+
+		
+
+		
+
+		
+
+
+		var object = new THREE.CSS3DObject( element );
+		object.position.x = Math.random() * 3000 + 2000;
+		object.position.y = Math.random() * 3000 + 2000;
+		object.position.z = Math.random() * 3000 + 2000;
+		scene.add( object );
+
+		object.info = item;
+
+		objects.push( object );
+
+	}
+
+/*	var elementshape = document.createElement( 'div' );
+	elementshape.className = 'logo';
+	elementshape.innerHTML = '<img src="img/f.PNG">';
+
+	var newshape = new THREE.CSS3DObject( elementshape );
+	scene.add( newshape );
+
+	newshape1.push( newshape );
+
+	newshape1[0].position = objects[0].position;
+
+
+
+	var elementshape = document.createElement( 'div' );
+	elementshape.className = 'logo2';
+	elementshape.innerHTML = '<img src="img/u.PNG">';
+
+	var newshape = new THREE.CSS3DObject( elementshape );
+	scene.add( newshape );
+
+	newshape1.push( newshape );
+
+	newshape1[1].position = objects[8].position;
+
+
+
+	var elementshape = document.createElement( 'div' );
+	elementshape.className = 'logo3';
+	elementshape.innerHTML = '<img src="img/t.PNG">';
+
+	var newshape = new THREE.CSS3DObject( elementshape );
+	scene.add( newshape );
+
+	newshape1.push( newshape );
+
+	newshape1[2].position = objects[16].position;
+
+	var elementshape = document.createElement( 'div' );
+	elementshape.className = 'logo4';
+	elementshape.innerHTML = '<img src="img/u2.PNG">';
+
+	var newshape = new THREE.CSS3DObject( elementshape );
+	scene.add( newshape );
+
+	newshape1.push( newshape );
+
+	newshape1[3].position = objects[20].position;
+
+	var elementshape = document.createElement( 'div' );
+	elementshape.className = 'logo5';
+	elementshape.innerHTML = '<img src="img/r.PNG">';
+
+	var newshape = new THREE.CSS3DObject( elementshape );
+	scene.add( newshape );
+
+	newshape1.push( newshape );
+
+	newshape1[4].position = objects[28].position;
+
+	var elementshape = document.createElement( 'div' );
+	elementshape.className = 'logo5';
+	elementshape.innerHTML = '<img src="img/e.PNG">';
+
+	var newshape = new THREE.CSS3DObject( elementshape );
+	scene.add( newshape );
+
+	newshape1.push( newshape );
+
+	newshape1[5].position = objects[36].position;
+
+	var elementshape = document.createElement( 'div' );
+	elementshape.className = 'logo5';
+	elementshape.innerHTML = '<img src="img/p.PNG">';
+
+	var newshape = new THREE.CSS3DObject( elementshape );
+	scene.add( newshape );
+
+	newshape1.push( newshape );
+
+	newshape1[6].position = objects[44].position;
+
+	var elementshape = document.createElement( 'div' );
+	elementshape.className = 'logo6';
+	elementshape.innerHTML = '<img src="img/a.PNG">';
+
+	var newshape = new THREE.CSS3DObject( elementshape );
+	scene.add( newshape );
+
+	newshape1.push( newshape );
+
+	newshape1[7].position = objects[52].position;
+
+	var elementshape = document.createElement( 'div' );
+	elementshape.className = 'logo4';
+	elementshape.innerHTML = '<img src="img/r3.PNG">';
+
+	var newshape = new THREE.CSS3DObject( elementshape );
+	scene.add( newshape );
+
+	newshape1.push( newshape );
+
+	newshape1[8].position = objects[58].position;
+
+	var elementshape = document.createElement( 'div' );
+	elementshape.className = 'logo4';
+	elementshape.innerHTML = '<img src="img/k.PNG">';
+
+	var newshape = new THREE.CSS3DObject( elementshape );
+	scene.add( newshape );
+
+	newshape1.push( newshape );
+
+	newshape1[9].position = objects[66].position;
+
+*/
+
+
+
+
+	var vector = new THREE.Vector3();
+
+
+	for ( var i = 0; i < objects.length; i ++ ) {
+
+
+		var object = new THREE.Object3D();
+
+		if (i == 0) {
+			object.position.x = -5800;
+			object.position.y = 900;
+			object.position.z = -4000;
+		};
+
+		if (i == 1) {
+			object.position.x = -5800;
+			object.position.y = 400;
+			object.position.z = -4000;
+		};
+
+		if (i == 2) {
+			object.position.x = -5800;
+			object.position.y = -100;
+			object.position.z = -4000;
+		};
+
+		if (i == 3) {
+			object.position.x = -5800;
+			object.position.y = -600;
+			object.position.z = -4000;
+		};
+
+		if (i == 4) {
+			object.position.x = -4800;
+			object.position.y = 900;
+			object.position.z = -4000;
+		};
+
+		if (i == 5) {
+			object.position.x = -4800;
+			object.position.y = 400;
+			object.position.z = -4000;
+		};
+
+		if (i == 6) {
+			object.position.x = -5000;
+			object.position.y = -100;
+			object.position.z = -4000;
+		};
+
+		if (i == 7) {
+			object.position.x = -3600;
+			object.position.y = 900;
+			object.position.z = -4000;
+		};
+
+		if (i == 8) {
+			object.position.x = -3600;
+			object.position.y = 400;
+			object.position.z = -4000;
+		};
+
+		if (i == 9) {
+			object.position.x = -3600;
+			object.position.y = -100;
+			object.position.z = -4000;
+		};
+
+		if (i == 10) {
+			object.position.x = -3100;
+			object.position.y = -600;
+			object.position.z = -4000;
+		};
+
+		if (i == 11) {
+			object.position.x = -2600;
+			object.position.y = 900;
+			object.position.z = -4000;
+		};
+
+		if (i == 12) {
+			object.position.x = -2600;
+			object.position.y = 400;
+			object.position.z = -4000;
+		};
+
+		if (i == 13) {
+			object.position.x = -2600;
+			object.position.y = -100;
+			object.position.z = -4000;
+		};
+
+		if (i == 14) {
+			object.position.x = -900;
+			object.position.y = 150;
+			object.position.z = -4000;
+		};
+
+		if (i == 15) {
+			object.position.x = -1400;
+			object.position.y = 650;
+			object.position.z = -4000;
+		};
+
+		if (i == 16) {
+			object.position.x = -900;
+			object.position.y = 1150;
+			object.position.z = -4000;
+		};
+
+		if (i == 17) {
+			object.position.x = -400;
+			object.position.y = 650;
+			object.position.z = -4000;
+		};
+
+
+		if (i == 18) {
+			object.position.x = -900;
+			object.position.y = -350;
+			object.position.z = -4000;
+		};
+
+		if (i == 19) {
+			object.position.x = -900;
+			object.position.y = -600;
+			object.position.z = -4000;
+		};
+
+		if (i == 20) {
+			object.position.x = 800;
+			object.position.y = 900;
+			object.position.z = -4000;
+		};
+
+		if (i == 21) {
+			object.position.x = 800;
+			object.position.y = 400;
+			object.position.z = -4000;
+		};
+
+		if (i == 22) {
+			object.position.x = 800;
+			object.position.y = -100;
+			object.position.z = -4000;
+		};
+
+		if (i == 23) {
+			object.position.x = 1300;
+			object.position.y = -600;
+			object.position.z = -4000;
+		};
+
+		if (i == 24) {
+			object.position.x = 1800;
+			object.position.y = 900;
+			object.position.z = -4000;
+		};
+
+		if (i == 25) {
+			object.position.x = 1800;
+			object.position.y = 400;
+			object.position.z = -4000;
+		};
+
+		if (i == 26) {
+			object.position.x = 1800;
+			object.position.y = -100;
+			object.position.z = -4000;
+		};
+
+		if (i == 27) {
+			object.position.x = 3000;
+			object.position.y = 900;
+			object.position.z = -4000;
+		};
+
+		if (i == 28) {
+			object.position.x = 3000;
+			object.position.y = 400;
+			object.position.z = -4000;
+		};
+
+		if (i == 29) {
+			object.position.x = 3000;
+			object.position.y = -100;
+			object.position.z = -4000;
+		};
+
+		if (i == 30) {
+			object.position.x = 3000;
+			object.position.y = -600;
+			object.position.z = -4000;
+		};
+
+		if (i == 31) {
+			object.position.x = 3750;
+			object.position.y = 900;
+			object.position.z = -4000;
+		};
+
+		if (i == 32) {
+			object.position.x = 4000;
+			object.position.y = 400;
+			object.position.z = -4000;
+		};
+
+		if (i == 33) {
+			object.position.x = 3750;
+			object.position.y = -100;
+			object.position.z = -4000;
+		};
+
+		if (i == 34) {
+			object.position.x = 4000;
+			object.position.y = -600;
+			object.position.z = -4000;
+		};
+
+		if (i == 35) {
+			object.position.x = 5200;
+			object.position.y = 900;
+			object.position.z = -4000;
+		};
+
+		if (i == 36) {
+			object.position.x = 5200;
+			object.position.y = 400;
+			object.position.z = -4000;
+		};
+
+		if (i == 37) {
+			object.position.x = 5200;
+			object.position.y = -100;
+			object.position.z = -4000;
+		};
+
+		if (i == 38) {
+			object.position.x = 5200;
+			object.position.y = -600;
+			object.position.z = -4000;
+		};
+
+		if (i == 39) {
+			object.position.x = 6200;
+			object.position.y = 900;
+			object.position.z = -4000;
+		};
+
+		if (i == 40) {
+			object.position.x = 5700;
+			object.position.y = 400;
+			object.position.z = -4000;
+		};
+
+		if (i == 41) {
+			object.position.x = 5700;
+			object.position.y = 100;
+			object.position.z = -4000;
+		};
+
+		if (i == 42) {
+			object.position.x = 6200;
+			object.position.y = -600;
+			object.position.z = -4000;
+		};
+
+		if (i == 43) {
+			object.position.x = -1350;
+			object.position.y = -1600;
+			object.position.z = -4000;
+		};
+
+		if (i == 44) {
+			object.position.x = -1350;
+			object.position.y = -2100;
+			object.position.z = -4000;
+		};
+
+		if (i == 45) {
+			object.position.x = -1350;
+			object.position.y = -2600;
+			object.position.z = -4000;
+		};
+
+		if (i == 46) {
+			object.position.x = -1350;
+			object.position.y = -3100;
+			object.position.z = -4000;
+		};
+
+		if (i == 47) {
+			object.position.x = -550;
+			object.position.y = -1600;
+			object.position.z = -4000;
+		};
+
+		if (i == 48) {
+			object.position.x = -350;
+			object.position.y = -2100;
+			object.position.z = -4000;
+		};
+
+		if (i == 49) {
+			object.position.x = -550;
+			object.position.y = -2400;
+			object.position.z = -4000;
+		};
+
+		if (i == 50) {
+			object.position.x = -350;
+			object.position.y = -1900;
+			object.position.z = -4000;
+		};
+
+		if (i == 51) {
+			object.position.x = 1350;
+			object.position.y = -1600;
+			object.position.z = -4000;
+		};
+
+		if (i == 52) {
+			object.position.x = 1100;
+			object.position.y = -2100;
+			object.position.z = -4000;
+		};
+
+		if (i == 53) {
+			object.position.x = 850;
+			object.position.y = -2600;
+			object.position.z = -4000;
+		};
+
+		if (i == 54) {
+			object.position.x = 850;
+			object.position.y = -3100;
+			object.position.z = -4000;
+		};
+
+		if (i == 55) {
+			object.position.x = 1600;
+			object.position.y = -2100;
+			object.position.z = -4000;
+		};
+
+		if (i == 56) {
+			object.position.x = 1850;
+			object.position.y = -2600;
+			object.position.z = -4000;
+		};
+
+		if (i == 57) {
+			object.position.x = 1850;
+			object.position.y = -3100;
+			object.position.z = -4000;
+		};
+
+		if (i == 58) {
+			object.position.x = 3000;
+			object.position.y = -1600;
+			object.position.z = -4000;
+		};
+
+		if (i == 59) {
+			object.position.x = 3000;
+			object.position.y = -2100;
+			object.position.z = -4000;
+		};
+
+		if (i == 60) {
+			object.position.x = 3000;
+			object.position.y = -2600;
+			object.position.z = -4000;
+		};
+
+		if (i == 61) {
+			object.position.x = 3000;
+			object.position.y = -3100;
+			object.position.z = -4000;
+		};
+
+		if (i == 62) {
+			object.position.x = 3750;
+			object.position.y = -1600;
+			object.position.z = -4000;
+		};
+
+		if (i == 63) {
+			object.position.x = 4000;
+			object.position.y =  -2100;
+			object.position.z = -4000;
+		};
+
+		if (i == 64) {
+			object.position.x = 3750;
+			object.position.y = -2600;
+			object.position.z = -4000;
+		};
+
+		if (i == 65) {
+			object.position.x = 4000;
+			object.position.y = -3100;
+			object.position.z = -4000;
+		};
+
+		if (i == 66) {
+			object.position.x = 5200;
+			object.position.y = -1600;
+			object.position.z = -4000;
+		};
+
+		if (i == 67) {
+			object.position.x = 5200;
+			object.position.y = -2100;
+			object.position.z = -4000;
+		};
+
+		if (i == 68) {
+			object.position.x = 5200;
+			object.position.y = -2600;
+			object.position.z = -4000;
+		};
+
+		if (i == 69) {
+			object.position.x = 5200;
+			object.position.y = -3100;
+			object.position.z = -4000;
+		};
+
+		if (i == 70) {
+			object.position.x = 6200;
+			object.position.y = -1800;
+			object.position.z = -4000;
+		};
+
+		if (i == 71) {
+			object.position.x = 5700;
+			object.position.y = -2100;
+			object.position.z = -4000;
+		};
+
+		if (i == 72) {
+			object.position.x = 5700;
+			object.position.y = -2600;
+			object.position.z = -4000;
+		};
+
+		if (i == 73) {
+			object.position.x = 6200;
+			object.position.y = -3100;
+			object.position.z = -4000;
+		};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		targets.sphere.push( object );
+
+
+
+	}
+
+
+	for ( var i = 0, l = objects.length; i < l; i ++ ) {
+
+
+		var object = new THREE.Object3D();
+
+		object.position.x = ((Math.random()*15000-1)-4500);
+		object.position.y = ((Math.random()*15000-1)-4500);
+		object.position.z = ((Math.random()*15000-1)-4500);
+
+		vector.copy( object.position );
+		vector.x *= 2;
+		vector.z *= 2;
+
+		object.lookAt( vector );
+
+		targets.helix.push( object );
+
+	}
+
+	for ( var i = 0; i < objects.length; i ++ ) {
+
+		var object = new THREE.Object3D();
+
+		object.position.x = ( ( i % 3 ) * 1000 ) - 800;
+		object.position.y = ( - ( Math.floor( i / 3 ) % 4 ) * 500 ) + 800;
+		object.position.z = ( Math.floor( i / 6 ) ) * 1000 - 2000;
+
+		targets.grid.push( object );
+
+	}
+
+
+	renderer = new THREE.CSS3DRenderer();
+	renderer.setSize( window.innerWidth, window.innerHeight );
+	renderer.domElement.style.position = 'absolute';
+	document.getElementById( 'container' ).appendChild( renderer.domElement );
+
+
+
+	
+	movetosphere();
+
+
+
+
+
+	window.addEventListener( 'resize', onWindowResize, false );
+
+}
+
+
+
+function movetohelix() {
+	transform( targets.helix, 1500 );	
+	setTimeout(function() {
+		PosCamera(0);
+	}, 3000);
+/*
+
+	setTimeout(function() {
+		visa();
+		
+	}, 300);*/
+
+}
+
+function movetogrid() {
+	transform( targets.grid, 1500 );
+	setTimeout(function() {
+		GridCamera(0);
+/*		visa()
+*/	}, 3000);
+
+}
+
+function vis() {
+		$( ".logo" ).animate({
+		   opacity: 1
+	}, 500);
+
+		$( ".logo2" ).animate({
+		   opacity: 1
+	}, 500);
+
+		$( ".logo3" ).animate({
+		   opacity: 1
+	}, 500);
+
+		$( ".logo4" ).animate({
+		   opacity: 1
+	}, 500);
+
+
+		$( ".logo5" ).animate({
+		   opacity: 1
+	}, 500);
+		$( ".logo6" ).animate({
+		   opacity: 1
+	}, 500);
+
+		$( ".logo7" ).animate({
+		   opacity: 1
+	}, 500);
+
+		$( ".element" ).animate({
+		   opacity: 0
+	}, 300);
+}
+
+
+function visa() {
+
+
+			$( ".element" ).animate({
+		   opacity: 1
+	}, 1);
+		$( ".logo" ).animate({
+		   opacity: 0
+	}, 500);
+
+		$( ".logo2" ).animate({
+		   opacity: 0
+	}, 500);
+
+		$( ".logo3" ).animate({
+		   opacity: 0
+	}, 500);
+
+		$( ".logo4" ).animate({
+		   opacity: 0
+	}, 500);
+
+
+		$( ".logo5" ).animate({
+		   opacity: 0
+	}, 500);
+		$( ".logo6" ).animate({
+		   opacity: 0
+	}, 500);
+
+		$( ".logo7" ).animate({
+		   opacity: 0
+	}, 700);
+
+
+
+}
+
+function movetosphere() {
+
+
+
+	var randomnumber = Math.floor((Math.random() * 2) + 1);
+
+	
+	transform( targets.sphere, 1500 );
+
+	
+
+
+/*	setTimeout(function() {
+		vis();
+		
+	}, 1500);*/
+
+	setTimeout(function() {
+		movetohelix();
+		
+	}, 7000);
+
+
+}
+
+
+
+
+function reset1() {
+
+	transform( targets.sphere, 8000 );
+	setTimeout(function() {
+		LogoCamera(0);
+	}, 3000);
+
+}
+
+
+
+function transform( targets, duration ) {
+
+	TWEEN.removeAll();
+
+	for ( var i = 0; i < objects.length; i ++ ) {
+
+		var object = objects[ i ];
+		var target = targets[ i ];
+
+		new TWEEN.Tween( object.position )
+			.to( { x: target.position.x, y: target.position.y, z: target.position.z }, Math.random() * duration + duration )
+			.easing( TWEEN.Easing.Exponential.InOut )
+			.start();
+
+		new TWEEN.Tween( object.rotation )
+			.to( { x: target.rotation.x, y: target.rotation.y, z: target.rotation.z }, Math.random() * duration + duration )
+			.easing( TWEEN.Easing.Exponential.InOut )
+			.start();
+
+	}
+
+	new TWEEN.Tween( this )
+		.to( {}, duration * 2 )
+		.onUpdate( render )
+		.start();
+
+}
+
+function onWindowResize() {
+
+	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.updateProjectionMatrix();
+
+	renderer.setSize( window.innerWidth, window.innerHeight );
+
+}
+
+function animate() {
+
+	requestAnimationFrame( animate );
+
+	TWEEN.update();
+
+}
+
+function render() {
+
+	renderer.render( scene, camera );
+
+}
+
+
+
+
+
+
+</script>
+
+<style>
+.hashtag {
+	font-size:50pt;
+	z-index:9999999;
+	color:#fff;
+	position: absolute;
+	bottom:50px;
+	left:50px;
+	font-family: 'Open Sans';
+	font-weight: 600;
+}
+
+#cTime {
+	position: absolute;
+	bottom:50px;
+	right:50px;
+	font-size:50pt;
+	z-index:9999999;
+	color:#fff;
+	font-family: 'Open Sans';
+	font-weight: 600;
+}
+</style>
+<div class="hashtag"><i class="fa fa-twitter-square"></i> <i class="fa fa-instagram"></i> #TheFuturePark</div>
+<script type="text/javascript">
+ $(document).ready(function () {
+     DisplayCurrentTime();
+ });
+ function DisplayCurrentTime() {
+     var dt = new Date();
+     var refresh = 1000; //Refresh rate 1000 milli sec means 1 sec
+     var cDate = (dt.getMonth() + 1) + "/" + dt.getDate() + "/" + dt.getFullYear();
+     document.getElementById('cTime').innerHTML = dt.toLocaleTimeString();
+     window.setTimeout('DisplayCurrentTime()', refresh);
+ }
+</script>
+<div id="cTime"></div>
+
+</body>
+</html>
