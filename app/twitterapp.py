@@ -18,6 +18,7 @@ from flask_oauth import OAuth
 #from datetime import datetime
 import sys
 from TwitterAPI import TwitterAPI, TwitterOAuth, TwitterRestPager
+from twitter import oauth
 from sqlalchemy import func
 import csv , codecs
 from embedly import Embedly
