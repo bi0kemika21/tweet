@@ -246,13 +246,15 @@ def search():
 			print followers
 			date = item['created_at'] if 'text' in item else item
 			print res,date
+			enable = True
 			if 'media' in item['entities']:
 				for image in item['entities']['media']:
 					image = image['media_url']
 			else:
 				image = ''
 			print image
-			t = models.Search(tweet=q, key=res, retweet=retweet, favorites=favorites, name=name, real=real, pic=pic, followers=followers, date=date, embed = image)
+			# t = models.Search(tweet=q, key=res, retweet=retweet, favorites=favorites, name=name, real=real, pic=pic, followers=followers, date=date, embed = image)
+			t = models.Trace(tweet=q, key=res, retweet=retweet, favorites=favorites, name=name, real=real, pic=pic, followers=followers, date=date, embed=image,enable=enable)
 			db.session.add(t)
 			db.session.commit()
 		# print result
