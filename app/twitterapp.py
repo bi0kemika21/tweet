@@ -254,8 +254,8 @@ def search():
 			else:
 				image = ''
 			print image
-			# t = models.Search(tweet=q, key=res, retweet=retweet, favorites=favorites, name=name, real=real, pic=pic, followers=followers, date=date, embed = image)
-			t = models.Trace(tweet=q, key=res, retweet=retweet, favorites=favorites, name=name, real=real, pic=pic, followers=followers, date=date, embed=image,enable=enable)
+			t = models.Search(tweet=q, key=res, retweet=retweet, favorites=favorites, name=name, real=real, pic=pic, followers=followers, date=date, embed = image)
+			# t = models.Trace(tweet=q, key=res, retweet=retweet, favorites=favorites, name=name, real=real, pic=pic, followers=followers, date=date, embed=image,enable=enable)
 			db.session.add(t)
 			db.session.commit()
 		# print result
