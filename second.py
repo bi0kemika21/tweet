@@ -438,7 +438,7 @@ def static_proxy1(path):
 @app.route('/drink-up-tweet-wall/<path:path>')
 def static_proxy(path):
     # send_static_file will guess the correct MIME type
-    return flask.send_from_directory('/home/loy/python/listener1/drink-up-tweet-wall', path)
+    return flask.send_from_directory('/var/www/html/tweet/drink-up-tweet-wall', path)
 
 if __name__ == '__main__':
     app.run(debug=True, port=4000, host='0.0.0.0')	
