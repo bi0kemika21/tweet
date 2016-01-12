@@ -142,6 +142,10 @@ def instagram2(key):
 	lol = "text"
 	return lol
 @app.route('/tag_search')
+def tag():
+	return tag_search()
+
+@sched.interval_schedule(minutes=2)
 def tag_search():
     api = InstagramAPI(client_id='b64f54dc4fb3486f87b55d92381e2625', client_secret='b5fa80c366b94cc980c882855630fe92')
     tag_search, next_tag = api.tag_search(q="thefuturepark")
@@ -164,7 +168,7 @@ def tag_search():
         enable = True
         photos.append('<img src="%s"/>' % tag_media.get_standard_resolution_url())
     	photos.append(tag_media.caption.text)
-    	data = models.Trace.query.filter(models.Trace.key==res)
+    	data = models.Trace.query.filter(models.Trace.key==res, models.Trace.name ==name)
     	if data.count() > 0:
     		print "kaparehas"
     	else:
@@ -173,7 +177,6 @@ def tag_search():
     		db.session.add(t)
     		db.session.commit()
     content += ''.join(photos)
-    	
     return content
 
 @app.route('/insta/<path:key>')
