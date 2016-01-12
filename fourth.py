@@ -26,7 +26,8 @@ except:
     # python 2
     sys.stdout = codecs.getwriter('utf8')(sys.stdout)
 
-
+reload(sys)  
+sys.setdefaultencoding('utf-8')
 
 # app = Flask(__name__)  // i don't know what the fuck this means
 sched = Scheduler()
@@ -140,11 +141,45 @@ def instagram2(key):
 		print dp, username, did,web, bio
 	lol = "text"
 	return lol
+@app.route('/tag_search')
+def tag_search():
+    api = InstagramAPI(client_id='b64f54dc4fb3486f87b55d92381e2625', client_secret='b5fa80c366b94cc980c882855630fe92')
+    tag_search, next_tag = api.tag_search(q="thefuturepark")
+    tag_recent_media, next = api.tag_recent_media(user_id="userid", tag_name=tag_search[0].name)
+    photos = []
+    content = "<h2>Media Search</h2>"
+    for tag_media in tag_recent_media:
+        # print tag_media
+        res = tag_media.caption.text
+        retweet = 0
+        favorites = tag_media.like_count
+        name = tag_media.user.username
+        real = tag_media.user.full_name
+        pic = tag_media.user.profile_picture
+        followers = 0
+        # date = unicode(tag_media.created_time.replace(microsecond=0))
+        date = tag_media.created_time
+        print date
+        embed = tag_media.get_standard_resolution_url()
+        enable = True
+        photos.append('<img src="%s"/>' % tag_media.get_standard_resolution_url())
+    	photos.append(tag_media.caption.text)
+    	data = models.Trace.query.filter(models.Trace.key==res)
+    	if data.count() > 0:
+    		print "kaparehas"
+    	else:
+    		print "wala"
+    		t = models.Trace(tweet='thefuturepark', key=res, retweet=retweet, favorites=favorites, name=name, real=real, pic=pic, followers=followers, date=date,embed=embed,enable=enable)
+    		db.session.add(t)
+    		db.session.commit()
+    content += ''.join(photos)
+    	
+    return content
 
 @app.route('/insta/<path:key>')
 def subscribe(key):
 	api = InstagramAPI(client_id='14c7fb94b134473d9ee9cc449face034', client_secret='1738e7489ef24de0abef9a0dbfa8d3ea')
-	api.create_subscription(object='tag', object_id=key, aspect='media', callback_url='http://localhost/hook/instagram')
+	api.create_subscription(object='tag', object_id=key, aspect='media', callback_url='http://127.0.0.1:3001/insta/thefuturepark')
 	for item in api.user_recent_media(user_id=key, count=20, max_id=100):
 		photo = item.images
 		print dp, username, did,web, bio
