@@ -149,10 +149,11 @@ def tag():
 def tag_search():
     api = InstagramAPI(client_id='b64f54dc4fb3486f87b55d92381e2625', client_secret='b5fa80c366b94cc980c882855630fe92')
     tag_search, next_tag = api.tag_search(q="thefuturepark")
-    tag_recent_media, next = api.tag_recent_media(user_id="userid", tag_name=tag_search[0].name)
+    tag_recent_media, next = api.tag_recent_media(count=1000,tag_name="thefuturepark")
     photos = []
     content = "<h2>Media Search</h2>"
-    for tag_media in tag_recent_media:
+
+    for tag_media in reversed(tag_recent_media):
         # print tag_media
         res = tag_media.caption.text
         retweet = 0
